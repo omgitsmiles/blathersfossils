@@ -4,17 +4,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const donate = document.getElementById('donate-btn')
     const sell = document.getElementById('sell-btn')
     const speechBubble = document.getElementById('speech-bubble')
+    
 
-    function renderFossil(fossil){
+    function renderFossil(fossils){
+        // let randomFossil = fossils[Math.floor(Math.random() * fossils.length)]
+        // debugger
         speechBubble.innerHTML = ''
-        let randomFossil = fossil[Math.floor(Math.random() * fossil.length)]
         const img = document.createElement('img')
+        const h2 = document.createElement('h2')
         const p = document.createElement('p')
-        img.src = fossil.image_url
-        speechBubble.append(img, p)
+        h2.innerText = fossils.amber.name['name-USen']
+        p.innerText = fossils.amber['museum-phrase']
+        console.log(fossils.amber.name['name-USen'])
+        img.src = fossils.amber['image_uri']
+        console.log(img)
+        speechBubble.append(h2, img, p)
     }
     dig.addEventListener('click', (e) => {
-       console.log('dig!')
+       fetch(baseURL)
+       .then(res => res.json())
+       .then(fossils => renderFossil(fossils))
     })
 
     sell.addEventListener('click', (e) => {
@@ -26,3 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
 })
+
+
+// fossils.amber.name['name-USen']
