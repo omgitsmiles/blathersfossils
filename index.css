@@ -1,0 +1,46 @@
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+}
+
+
+.speech-bubble {
+    width: 300px;
+    margin: 50px auto;
+    border: 4px solid #8b4513;
+    padding: 20px;
+    text-align: center;
+    font-weight: 900;
+    color: #f4a460;
+    font-family: monaco;
+    position: relative;
+  }
+
+  .sb1:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid #8b4513;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #8b4513;
+    border-bottom: 10px solid transparent;
+    right: -20px;
+    top: 6px;
+  }
+
+   .sb1:after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 7px solid #fff;
+    border-right: 7px solid transparent;
+    border-top: 7px solid #fff;
+    border-bottom: 7px solid transparent;
+    right: -11px;
+    top: 10px;
+  }
+   
