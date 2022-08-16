@@ -1,3 +1,4 @@
+
 .center {
     display: block;
     margin-left: auto;
@@ -5,6 +6,15 @@
     width: max-content;
 }
 
+.right {
+    float: right;
+}
+
+.left {
+    margin: auto 5px;
+    float: left;
+    
+}
 
 .speech-bubble {
     width: 300px;
@@ -17,19 +27,19 @@
     font-family: monaco;
     position: relative;
   }
-
+  8b4513
   .sb1:before {
     content: "";
     width: 0px;
     height: 0px;
     position: absolute;
-    border-left: 10px solid #8b4513;
+    border-left: 10px solid #00bfb6;
     border-right: 10px solid transparent;
-    border-top: 10px solid #8b4513;
+    border-top: 10px solid #00bfb6;
     border-bottom: 10px solid transparent;
     right: -20px;
     top: 6px;
-  }
+}
 
    .sb1:after {
     content: "";
@@ -43,4 +53,3 @@
     right: -11px;
     top: 10px;
   }
-   
