@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const donate = document.getElementById('donate-btn')
     const search = document.getElementById('searchform')
     const speechBubble = document.getElementById('speech-bubble')
-    let fossilArr = []
     
     function renderFossil(fossils){
-        let randomFossil = Math.floor(Math.random() * fossils.length)
+        const fossilArr =  Object.keys(fossils)
+        let randomFossil = Math.floor(Math.random() * fossilArr.length)
         // debugger
         console.log(randomFossil)
         speechBubble.innerHTML = ''
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const p = document.createElement('p')
         h2.innerText = `You've found ` + fossils.amber.name['name-USen']
         p.innerText = fossils.amber['museum-phrase']
-        console.log(fossils.amber.name['name-USen'])
+        console.log()
         img.src = fossils.amber['image_uri']
         console.log(img)
         speechBubble.append(h2, img, p)
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dig.addEventListener('click', (e) => {
        fetch(baseURL + '/fossils')
        .then(res => res.json())
-       .then(res => {fossilArr.push(...res)})
+       .then(fossils => renderFossil(fossils))
     })
 
     search.addEventListener('submit', (e) => {
