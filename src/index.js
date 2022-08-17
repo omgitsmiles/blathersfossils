@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const baseURL = 'https://acnhapi.com/v1/fossils'
+    const baseURL = 'https://acnhapi.com/v1'
     const dig = document.getElementById('dig-btn')
     const donate = document.getElementById('donate-btn')
-    const sell = document.getElementById('sell-btn')
+    const search = document.getElementById('searchform')
     const speechBubble = document.getElementById('speech-bubble')
     
     function renderFossil(fossils){
@@ -21,25 +21,29 @@ document.addEventListener('DOMContentLoaded', () => {
         speechBubble.append(h2, img, p)
     }
 
-    function sellFossil(fossils) {
+    function searchBugs(bugs) {
         speechBubble.innerHTML = ''
         const h2 = document.createElement('h2')
+        const img = document.createElement('img')
         const p = document.createElement('p')
-        h2.innerText = fossils.amber.price
-        p.innerText = 'Hoo! oh my. You sure you wanna sell it?'
-        speechBubble.append(h2, p)
+        h2.innerText = bugs.name['name-USen']
+        img.src = bugs['icon_uri']
+        p.innerText = bugs['museum-phrase']
+        speechBubble.append(h2, img, p)
     }
 
     dig.addEventListener('click', (e) => {
-       fetch(baseURL)
+       fetch(baseURL + '/fossils')
        .then(res => res.json())
        .then(fossils => renderFossil(fossils))
     })
 
-    sell.addEventListener('click', (e) => {
-        fetch(baseURL)
+    search.addEventListener('submit', (e) => {
+        e.preventDefault()
+        console.log(e.target.search.value)
+        fetch(baseURL + `/bugs/${e.target.search.value}`)
         .then(res => res.json())
-        .then(fossils => sellFossil(fossils))
+        .then(bugs => searchBugs(bugs))
     })
 
     donate.addEventListener('click', (e) => {
