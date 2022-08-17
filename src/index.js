@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const donate = document.getElementById('donate-btn')
     const search = document.getElementById('searchform')
     const speechBubble = document.getElementById('speech-bubble')
+    let fossilArr = []
     
     function renderFossil(fossils){
         let randomFossil = Math.floor(Math.random() * fossils.length)
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function searchBugs(bugs) {
+        if (bugs)
         speechBubble.innerHTML = ''
         const h2 = document.createElement('h2')
         const img = document.createElement('img')
@@ -35,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dig.addEventListener('click', (e) => {
        fetch(baseURL + '/fossils')
        .then(res => res.json())
-       .then(fossils => renderFossil(fossils))
+       .then(res => {fossilArr.push(...res)})
     })
 
     search.addEventListener('submit', (e) => {
@@ -54,3 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // fossils.amber.name['name-USen']
+
+// turn into the array, define in global scope to the math function can bring a random num
+// getMakeup()
+// .then(res => {
+//     allProducts.push(...res)
+//     // document.getElementById("products").addEventListener('change', displayProducts)
+// })
