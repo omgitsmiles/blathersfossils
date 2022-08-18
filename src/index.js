@@ -8,32 +8,46 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderFossil(fossils){
         const fossilArr =  Object.keys(fossils)
         let randomFossil = fossilArr[Math.floor(Math.random() * fossilArr.length)]
-        // debugger
-        console.log(randomFossil)
+        const selectFossil = fossils[randomFossil]
+        console.log(fossils[randomFossil])
         speechBubble.innerHTML = ''
         const img = document.createElement('img')
         const h2 = document.createElement('h2')
         const p = document.createElement('p')
-        h2.innerText = `You've found ` + randomFossil.name
-        p.innerText = fossils.amber['museum-phrase']
-        console.log()
-        img.src = fossils.amber['image_uri']
-        console.log(img)
+        h2.innerText = `You've found ` + selectFossil.name['name-USen']
+        p.innerText = selectFossil['museum-phrase']
+        img.src = selectFossil['image_uri']
         speechBubble.append(h2, img, p)
     }
 
-    function searchBugs(bugs) {
+    function renderBugs(bugs, string){
+        console.log(bugs)
         speechBubble.innerHTML = ''
+        const search = (string) => {
+            const searchTerms = Object.keys(bugs)
+            const searchResults = searchTerms.filter(item => item.includes(string))
+                return searchResults
+            }
+        console.log(search(string))
+        const results = search(string)
+        console.log(results)
+        const div = document.createElement('div')
         // let str = bugs.name['name-USen']
         // if (str.toLowerCase().includes(bugs))
-        const h2 = document.createElement('h2')
-        const img = document.createElement('img')
-        const p = document.createElement('p')
-        h2.innerText = bugs.name['name-USen']
-        img.src = bugs['icon_uri']
-        p.innerText = bugs['museum-phrase']
-        speechBubble.append(h2, img, p)
+        // const h2 = document.createElement('h2')
+        // const img = document.createElement('img')
+        // const p = document.createElement('p')
+        // h2.innerText = bugs.name['name-USen']
+        // img.src = bugs['icon_uri']
+        // p.innerText = bugs['museum-phrase']
+        // speechBubble.append(h2, img, p)
+            div.innerText = results[0]
+            speechBubble.append(div)
 
+    }
+
+    function searchError() {
+        alert('Hoo! Sorry, Couldn\'t find it.')
     }
 
     dig.addEventListener('click', (e) => {
@@ -44,21 +58,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     search.addEventListener('submit', (e) => {
         e.preventDefault()
-        if (e.target.search.value === 'string')
-        console.log(e.target.search.value)
-        fetch(baseURL + `/bugs/${e.target.search.value.toLowerCase()}`)
+        // console.log(e.target.search.value)
+        fetch(baseURL + '/bugs')
         .then(res => res.json())
-        .then(bugs => searchBugs(bugs))
+        .then(bugs => renderBugs(bugs, e.target.search.value))
+        .catch(() => searchError())
     })
 
     donate.addEventListener('click', (e) => {
-        console.log('donate!')
+        //take the renderfossil that was appended to speechbubble
+        
+        //append image below blathers and donation button
+        //write a quick thank you from blathers
     })
 
 })
 
 
 // fossils.amber.name['name-USen']
+// ${e.target.search.value.toLowerCase()}
 
 // turn into the array, define in global scope to the math function can bring a random num
 // getMakeup()
@@ -66,5 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //     allProducts.push(...res)
 //     // document.getElementById("products").addEventListener('change', displayProducts)
 // })
+
+//
 
 //
