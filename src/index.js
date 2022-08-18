@@ -7,14 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function renderFossil(fossils){
         const fossilArr =  Object.keys(fossils)
-        let randomFossil = Math.floor(Math.random() * fossilArr.length)
+        let randomFossil = fossilArr[Math.floor(Math.random() * fossilArr.length)]
         // debugger
         console.log(randomFossil)
         speechBubble.innerHTML = ''
         const img = document.createElement('img')
         const h2 = document.createElement('h2')
         const p = document.createElement('p')
-        h2.innerText = `You've found ` + fossils.amber.name['name-USen']
+        h2.innerText = `You've found ` + randomFossil.name
         p.innerText = fossils.amber['museum-phrase']
         console.log()
         img.src = fossils.amber['image_uri']
@@ -23,8 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function searchBugs(bugs) {
-        if (bugs)
         speechBubble.innerHTML = ''
+        // let str = bugs.name['name-USen']
+        // if (str.toLowerCase().includes(bugs))
         const h2 = document.createElement('h2')
         const img = document.createElement('img')
         const p = document.createElement('p')
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src = bugs['icon_uri']
         p.innerText = bugs['museum-phrase']
         speechBubble.append(h2, img, p)
+
     }
 
     dig.addEventListener('click', (e) => {
@@ -42,8 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     search.addEventListener('submit', (e) => {
         e.preventDefault()
+        if (e.target.search.value === 'string')
         console.log(e.target.search.value)
-        fetch(baseURL + `/bugs/${e.target.search.value}`)
+        fetch(baseURL + `/bugs/${e.target.search.value.toLowerCase()}`)
         .then(res => res.json())
         .then(bugs => searchBugs(bugs))
     })
@@ -63,3 +66,5 @@ document.addEventListener('DOMContentLoaded', () => {
 //     allProducts.push(...res)
 //     // document.getElementById("products").addEventListener('change', displayProducts)
 // })
+
+//
