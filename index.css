@@ -29,4 +29,10 @@
     font-family: monaco;
     position: relative;
   }
+
+  #donate-container {
+    float: right;
+    position: relative;
+    left: 150px;
+  }
  

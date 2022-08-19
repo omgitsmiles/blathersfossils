@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const donate = document.getElementById('donate-btn')
     const search = document.getElementById('searchform')
     const speechBubble = document.getElementById('speech-bubble')
+    const container = document.getElementById('donate-container')
     
     function renderFossil(fossils){
         const fossilArr =  Object.keys(fossils)
@@ -13,14 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const img = document.createElement('img')
         const h2 = document.createElement('h2')
         const p = document.createElement('p')
-        h2.innerText = `You've found ` + selectFossil.name['name-USen']
+        h2.innerText = `You've found an ` + selectFossil.name['name-USen']
         p.innerText = selectFossil['museum-phrase']
         img.src = selectFossil['image_uri']
         speechBubble.append(h2, img, p)
     }
 
-
-    //sort the matching problem, maybe match w regex? tried item === string
     function renderBugs(bugs, string){
         speechBubble.innerHTML = ''
         const search = string => {
@@ -60,7 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function searchError() {
         alert('Hoo! Sorry, Couldn\'t find it.')
-        speechBubble.innerHTML = 'Hoo! Try another search!'
+        speechBubble.innerHTML = 'Hoo! I hate bugs! Try another search.'
+    }
+
+    function donateFossil() {
+        if (speechBubble.innerHTML === img.src.includes('https://acnhapi.com/v1/fossils')) {
+            console.log('ok')
+    //     const img = document.createElement('img')
+    //     img.src = `https://acnhapi.com/v1/fossils`
+    //     container.append(img)
+        }
     }
 
     dig.addEventListener('click', (e) => {
@@ -78,6 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     donate.addEventListener('click', (e) => {
+        if (speechBubble.innerHTML === includes('https://acnhapi.com/v1/fossils')) {
+            console.log('ok')
+        }
         //if i declare the search event listner will it be able to pass select fossil here?
         //pass global variable assign it to selected fossil
         //take the renderfossil that was appended to speechbubble
@@ -102,7 +113,3 @@ document.addEventListener('DOMContentLoaded', () => {
 //     allProducts.push(...res)
 //     // document.getElementById("products").addEventListener('change', displayProducts)
 // })
-
-//
-
-//
