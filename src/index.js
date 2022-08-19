@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function searchError() {
         alert('Hoo! Sorry, Couldn\'t find it.')
+        speechBubble.innerHTML = 'Hoo! Try another search!'
     }
 
     dig.addEventListener('click', (e) => {
