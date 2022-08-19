@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
             container.append(img)
         } else if (speechBubble.innerHTML.includes('bugs')) {
             speechBubble.innerHTML = 'Hooooo..... WHO!? Get it away!'
-        } else speechBubble.innerHTML = 'Zzzz'
+        } else speechBubble.innerHTML = 'Zzzz...Zzzz..Zzzz...'
         //if i declare the search event listner will it be able to pass select fossil here?
         //pass global variable assign it to selected fossil
         //take the renderfossil that was appended to speechbubble
