@@ -23,25 +23,33 @@ document.addEventListener('DOMContentLoaded', () => {
         speechBubble.innerHTML = ''
         const search = string => {
             const searchTerms = Object.keys(bugs)
-            const searchResults = searchTerms.filter(item => item.includes(string))
+            const searchResults = searchTerms.filter(item => item.includes(string)) 
                 return searchResults
             }
         console.log(search(string))
         const results = search(string)
-        if (results.length > 1) {
-            const h2 = document.createElement('h2')
-            h2.innerText = 'Hoo! Which one?'
-            speechBubble.append(h2)
-        results.forEach(item => {
-            const div = document.createElement('div')
-            div.innerText = item
-            speechBubble.append(div)
-        })
-        } else if (results.length == 1) {
         const buggos = bugs[results]
         const h2 = document.createElement('h2')
         const img = document.createElement('img')
         const p = document.createElement('p')
+        if (results.length > 1) {
+            h2.innerText = 'Hoo! Which one?'
+            speechBubble.append(h2)
+            results.forEach(item => {
+            // const selectBugs = bugs[items]
+            const div = document.createElement('div')
+            div.innerText = item
+            speechBubble.append(div)
+            div.addEventListener('click', () => {
+                const selectBugs = 
+                speechBubble.innerHTML = ''
+                h2.innerText = item
+                img.src = item['icon_uri']
+                p.innerText = item
+                speechBubble.append(h2, img, p)
+            })
+        })
+        } else if (results.length == 1) {
         h2.innerText = buggos.name['name-USen']
         img.src = buggos['icon_uri']
         p.innerText = buggos['museum-phrase']
