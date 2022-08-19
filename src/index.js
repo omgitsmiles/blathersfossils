@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const selectFossil = fossils[randomFossil]
         speechBubble.innerHTML = ''
         const img = document.createElement('img')
+        img.className = 'fossilImg'
         const h2 = document.createElement('h2')
         const p = document.createElement('p')
         h2.innerText = `You've found an ` + selectFossil.name['name-USen']
@@ -49,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 speechBubble.append(h2, img, p)
             })
         })
-        } else if (results.length == 1) {
+        } else if (results.length === 1) {
         h2.innerText = buggos.name['name-USen']
         img.src = buggos['icon_uri']
         p.innerText = buggos['museum-phrase']
@@ -87,9 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     donate.addEventListener('click', () => {
         if (speechBubble.innerHTML.includes('fossils')) {
-            speechBubble.innerHTML = 'HOO! This would make an excellent donation for the museum!'
-            const img = document.querySelector('img')
-            container.append(img)
+            const fossilImg = document.querySelector('.fossilImg')
+            console.log(fossilImg)
+            container.append(fossilImg)
+            speechBubble.innerHTML = 'HOO! This would make an excellent addition for the museum!'
         } else if (speechBubble.innerHTML.includes('bugs')) {
             speechBubble.innerHTML = 'Hooooo..... WHO!? Get it away!'
         } else speechBubble.innerHTML = 'Zzzz...Zzzz..Zzzz...'

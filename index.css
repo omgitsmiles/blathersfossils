@@ -32,8 +32,8 @@
 
   #donate-container {
     float: left;
-    position: relative;
-    left: 150px;
-    top: 500px;
+    position: fixed;
+    left: 125px;
+    top: 600px;
   }
  
