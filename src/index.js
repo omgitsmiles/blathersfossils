@@ -62,14 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
         speechBubble.innerHTML = 'Hoo! I hate bugs! Try another search.'
     }
 
-    function donateFossil() {
-        if (speechBubble.innerHTML === img.src.includes('https://acnhapi.com/v1/fossils')) {
-            console.log('ok')
+    // function donateFossil() {
+    //     if (speechBubble.innerHTML.includes('https://acnhapi.com/v1/fossils')) {
+    //         console.log('ok')
     //     const img = document.createElement('img')
     //     img.src = `https://acnhapi.com/v1/fossils`
     //     container.append(img)
-        }
-    }
+    //     }
+    // }
 
     dig.addEventListener('click', (e) => {
        fetch(baseURL + '/fossils')
@@ -85,10 +85,14 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(() => searchError())
     })
 
-    donate.addEventListener('click', (e) => {
-        if (speechBubble.innerHTML === includes('https://acnhapi.com/v1/fossils')) {
-            console.log('ok')
-        }
+    donate.addEventListener('click', () => {
+        if (speechBubble.innerHTML.includes('fossils')) {
+            speechBubble.innerHTML = 'HOO! This would make an excellent donation for the museum!'
+            const img = document.querySelector('img')
+            container.append(img)
+        } else if (speechBubble.innerHTML.includes('bugs')) {
+            speechBubble.innerHTML = 'Hooooo..... WHO!? Get it away!'
+        } else speechBubble.innerHTML = 'Zzzz'
         //if i declare the search event listner will it be able to pass select fossil here?
         //pass global variable assign it to selected fossil
         //take the renderfossil that was appended to speechbubble
