@@ -21,29 +21,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderBugs(bugs, string){
-        console.log(bugs)
         speechBubble.innerHTML = ''
-        const search = (string) => {
+        const search = string => {
             const searchTerms = Object.keys(bugs)
             const searchResults = searchTerms.filter(item => item.includes(string))
                 return searchResults
             }
         console.log(search(string))
         const results = search(string)
-        console.log(results)
-        const div = document.createElement('div')
-        // let str = bugs.name['name-USen']
-        // if (str.toLowerCase().includes(bugs))
-        // const h2 = document.createElement('h2')
-        // const img = document.createElement('img')
-        // const p = document.createElement('p')
-        // h2.innerText = bugs.name['name-USen']
-        // img.src = bugs['icon_uri']
-        // p.innerText = bugs['museum-phrase']
-        // speechBubble.append(h2, img, p)
-            div.innerText = results[0]
-            speechBubble.append(div)
-
+        if (results.length > 1) {
+        results.forEach(item => {
+            const h2 = document.createElement('h2')
+            const div = document.createElement('div')
+            h2.innerText = 'Hoo! Which one?'
+            div.innerText = item
+            speechBubble.append(h2, div)
+        })
+    } else if (results.length == 1) {
+        const buggos = bugs[results]
+        console.log(buggos)
+        const h2 = document.createElement('h2')
+        const img = document.createElement('img')
+        const p = document.createElement('p')
+        h2.innerText = buggos.name['name-USen']
+        img.src = buggos['icon_uri']
+        p.innerText = buggos['museum-phrase']
+        speechBubble.append(h2, img, p)
+        }
     }
 
     function searchError() {
@@ -58,22 +62,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     search.addEventListener('submit', (e) => {
         e.preventDefault()
-        // console.log(e.target.search.value)
         fetch(baseURL + '/bugs')
         .then(res => res.json())
-        .then(bugs => renderBugs(bugs, e.target.search.value))
+        .then(bugs => renderBugs(bugs, e.target.search.value.toLowerCase()))
         .catch(() => searchError())
     })
 
     donate.addEventListener('click', (e) => {
+        //pass global variable assign it to selected fossil
         //take the renderfossil that was appended to speechbubble
-        
         //append image below blathers and donation button
         //write a quick thank you from blathers
     })
 
 })
 
+
+
+
+// let str = bugs.name['name-USen']
+// if (str.toLowerCase().includes(bugs))
 
 // fossils.amber.name['name-USen']
 // ${e.target.search.value.toLowerCase()}
