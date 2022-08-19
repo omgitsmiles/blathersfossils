@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
         speechBubble.append(h2, img, p)
     }
 
+
+    //sort the matching problem, maybe match w regex? tried item === string
     function renderBugs(bugs, string){
         speechBubble.innerHTML = ''
         const search = string => {
@@ -36,16 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
             h2.innerText = 'Hoo! Which one?'
             speechBubble.append(h2)
             results.forEach(item => {
-            // const selectBugs = bugs[items]
+            const selectBugs = bugs[item]
             const div = document.createElement('div')
-            div.innerText = item
+            div.innerText = selectBugs.name['name-USen']
             speechBubble.append(div)
             div.addEventListener('click', () => {
-                const selectBugs = 
                 speechBubble.innerHTML = ''
-                h2.innerText = item
-                img.src = item['icon_uri']
-                p.innerText = item
+                h2.innerText = selectBugs.name['name-USen']
+                img.src = selectBugs['icon_uri']
+                p.innerText = selectBugs['museum-phrase']
                 speechBubble.append(h2, img, p)
             })
         })
