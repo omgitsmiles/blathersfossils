@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const fossilArr =  Object.keys(fossils)
         let randomFossil = fossilArr[Math.floor(Math.random() * fossilArr.length)]
         const selectFossil = fossils[randomFossil]
-        console.log(fossils[randomFossil])
         speechBubble.innerHTML = ''
         const img = document.createElement('img')
         const h2 = document.createElement('h2')
@@ -30,16 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(search(string))
         const results = search(string)
         if (results.length > 1) {
-        results.forEach(item => {
             const h2 = document.createElement('h2')
-            const div = document.createElement('div')
             h2.innerText = 'Hoo! Which one?'
+            speechBubble.append(h2)
+        results.forEach(item => {
+            const div = document.createElement('div')
             div.innerText = item
-            speechBubble.append(h2, div)
+            speechBubble.append(div)
         })
-    } else if (results.length == 1) {
+        } else if (results.length == 1) {
         const buggos = bugs[results]
-        console.log(buggos)
         const h2 = document.createElement('h2')
         const img = document.createElement('img')
         const p = document.createElement('p')
@@ -47,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src = buggos['icon_uri']
         p.innerText = buggos['museum-phrase']
         speechBubble.append(h2, img, p)
-        }
+        } else return searchError()
     }
 
     function searchError() {
@@ -69,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     donate.addEventListener('click', (e) => {
+        //if i declare the search event listner will it be able to pass select fossil here?
         //pass global variable assign it to selected fossil
         //take the renderfossil that was appended to speechbubble
         //append image below blathers and donation button
