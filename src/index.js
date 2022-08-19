@@ -88,9 +88,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     donate.addEventListener('click', () => {
         if (speechBubble.innerHTML.includes('fossils')) {
+            const div = document.createElement('div')
             const fossilImg = document.querySelector('.fossilImg')
+            const contOne = document.getElementById('cont1')
+            const contTwo = document.getElementById('cont2')
+            const contThree = document.getElementById('cont3')
             console.log(fossilImg)
-            container.append(fossilImg)
+            switch('') {
+                case contOne.innerHTML:
+                    contOne.appendChild(fossilImg)
+                    break
+                case contTwo.innerHTML:
+                    contTwo.appendChild(fossilImg)
+                    break
+                case contThree.innerHTML:
+                    contThree.appendChild(fossilImg)
+                    break
+            }
+            // container.append(fossilImg)
             speechBubble.innerHTML = 'HOO! This would make an excellent addition for the museum!'
         } else if (speechBubble.innerHTML.includes('bugs')) {
             speechBubble.innerHTML = 'Hooooo..... WHO!? Get it away!'

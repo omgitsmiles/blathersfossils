@@ -33,7 +33,27 @@
   #donate-container {
     float: left;
     position: fixed;
-    left: 125px;
-    top: 600px;
+    left: 10px;
+    top: 550px;
   }
  
+  #cont1 {
+    float: left;
+    position: fixed;
+    left: 10px;
+    top: 550px;
+  }
+
+  #cont2 {
+    float: left;
+    position: fixed;
+    left: 150px;
+    top: 550px;
+  }
+
+  #cont3 {
+    float: left;
+    position: fixed;
+    left: 300px;
+    top: 550px;
+  }
