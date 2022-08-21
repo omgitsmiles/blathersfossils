@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const donate = document.getElementById('donate-btn')
     const search = document.getElementById('searchform')
     const speechBubble = document.getElementById('speech-bubble')
-    const container = document.getElementById('donate-container')
     
     function renderFossil(fossils){
         const fossilArr =  Object.keys(fossils)
@@ -12,13 +11,40 @@ document.addEventListener('DOMContentLoaded', () => {
         const selectFossil = fossils[randomFossil]
         speechBubble.innerHTML = ''
         const img = document.createElement('img')
-        img.className = 'fossilImg'
         const h2 = document.createElement('h2')
         const p = document.createElement('p')
         h2.innerText = `You've found an ` + selectFossil.name['name-USen']
         p.innerText = selectFossil['museum-phrase']
         img.src = selectFossil['image_uri']
+        img.alt = selectFossil.name['name-USen']
         speechBubble.append(h2, img, p)
+
+        donate.addEventListener('click', () => {
+            if (speechBubble.innerHTML.includes('fossils')) {
+                let fossilImg = document.createElement('img')
+                const contOne = document.getElementById('cont1')
+                const contTwo = document.getElementById('cont2')
+                const contThree = document.getElementById('cont3')
+                fossilImg.src = selectFossil['image_uri']
+                fossilImg.alt = selectFossil.name['name-USen']
+                switch('') {
+                    case contOne.innerHTML:
+                        contOne.append(fossilImg)
+                        break
+                    case contTwo.innerHTML:
+                        contTwo.append(fossilImg)
+                        break
+                    case contThree.innerHTML:
+                        contThree.append(fossilImg)
+                        break
+                        default:
+                            fullMuseum()
+                }
+                speechBubble.innerHTML = 'HOO! This will make an excellent addition for the museum!'
+            } else if (speechBubble.innerHTML.includes('bugs')) {
+                speechBubble.innerHTML = 'Hooooo..... WHO!? Get it away! Fossils only'
+            } else speechBubble.innerHTML = 'Zzzz...Zzzz..Zzzz...'
+        })
     }
 
     function renderBugs(bugs, string){
@@ -28,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const searchResults = searchTerms.filter(item => item.includes(string)) 
                 return searchResults
             }
-        console.log(search(string))
         const results = search(string)
         const buggos = bugs[results]
         const h2 = document.createElement('h2')
@@ -62,15 +87,10 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Hoo! Sorry, Couldn\'t find it.')
         speechBubble.innerHTML = 'Hoo! I hate bugs! Try another search.'
     }
-
-    // function donateFossil() {
-    //     if (speechBubble.innerHTML.includes('https://acnhapi.com/v1/fossils')) {
-    //         console.log('ok')
-    //     const img = document.createElement('img')
-    //     img.src = `https://acnhapi.com/v1/fossils`
-    //     container.append(img)
-    //     }
-    // }
+    
+    function fullMuseum() {
+        speechBubble.innerText = 'The museum is full'
+    }
 
     dig.addEventListener('click', (e) => {
        fetch(baseURL + '/fossils')
@@ -84,37 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(res => res.json())
         .then(bugs => renderBugs(bugs, e.target.search.value.toLowerCase()))
         .catch(() => searchError())
-    })
-
-    donate.addEventListener('click', () => {
-        if (speechBubble.innerHTML.includes('fossils')) {
-            const div = document.createElement('div')
-            const fossilImg = document.querySelector('.fossilImg')
-            const contOne = document.getElementById('cont1')
-            const contTwo = document.getElementById('cont2')
-            const contThree = document.getElementById('cont3')
-            console.log(fossilImg)
-            switch('') {
-                case contOne.innerHTML:
-                    contOne.appendChild(fossilImg)
-                    break
-                case contTwo.innerHTML:
-                    contTwo.appendChild(fossilImg)
-                    break
-                case contThree.innerHTML:
-                    contThree.appendChild(fossilImg)
-                    break
-            }
-            // container.append(fossilImg)
-            speechBubble.innerHTML = 'HOO! This would make an excellent addition for the museum!'
-        } else if (speechBubble.innerHTML.includes('bugs')) {
-            speechBubble.innerHTML = 'Hooooo..... WHO!? Get it away!'
-        } else speechBubble.innerHTML = 'Zzzz...Zzzz..Zzzz...'
-        //if i declare the search event listner will it be able to pass select fossil here?
-        //pass global variable assign it to selected fossil
-        //take the renderfossil that was appended to speechbubble
-        //append image below blathers and donation button
-        //write a quick thank you from blathers
     })
 
 })
@@ -134,3 +123,34 @@ document.addEventListener('DOMContentLoaded', () => {
 //     allProducts.push(...res)
 //     // document.getElementById("products").addEventListener('change', displayProducts)
 // })
+
+// function donateFossil(fossils) {
+//     if (speechBubble.innerHTML.includes('fossils')) {
+//     let fossilImg = document.getElementById('img')
+//     const contOne = document.getElementById('cont1')
+//     const contTwo = document.getElementById('cont2')
+//     const contThree = document.getElementById('cont3')
+//     fossilImg.src = selectFossil['image_uri']
+//     switch('') {
+//         case contOne.innerHTML:
+//             contOne.append(fossilImg)
+//             break
+//         case contTwo.innerHTML:
+//             contTwo.append(fossilImg)
+//             break
+//         case contThree.innerHTML:
+//             contThree.append(fossilImg)
+//             break
+//             default:
+//                 fullMuseum()
+//             }
+//             speechBubble.innerHTML = 'HOO! This will make an excellent addition for the museum!'
+//         } else if (speechBubble.innerHTML.includes('bugs')) {
+//             speechBubble.innerHTML = 'Hooooo..... WHO!? Get it away! Fossils only'
+//         } else speechBubble.innerHTML = 'Zzzz...Zzzz..Zzzz...'
+//     }
+  //if i declare the search event listner will it be able to pass select fossil here?
+            //pass global variable assign it to selected fossil
+            //take the renderfossil that was appended to speechbubble
+            //append image below blathers and donation button
+            //write a quick thank you from blathers
