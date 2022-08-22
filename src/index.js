@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // fossilImg.alt = selectFossil.name['name-USen']
         //if else statements for container
         console.log(fossilImg)
+        // Hi Sara, tried both of these if else statements and both had some functionality going back and forth from contOne & contTwo
         // if (contOne.innerHTML === ''){
         //     contOne.append(fossilImg)
         // } else if (contOne.innerHTML.includes('fossil')){
