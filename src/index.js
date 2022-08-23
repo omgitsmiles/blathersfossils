@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (contThree.innerHTML === ''){
             fossilImg.classList.remove('fossilImg')
             contThree.append(fossilImg)
-            speechBubble.innerHTML = 'You\'re kindness is amazing! my museum is now full!'
+            speechBubble.innerHTML = 'Your kindness is a HOOT! my museum is now full!'
             donate.innerHTML = ''
         } 
     } else if (speechBubble.innerHTML.includes('bugs')) {
