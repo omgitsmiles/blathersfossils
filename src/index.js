@@ -22,51 +22,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     
     donate.addEventListener('click', () => {
-    // debugger
     if (speechBubble.innerHTML.includes('fossils')) {
         let fossilImg = document.querySelector('.fossilImg')
         const contOne = document.getElementById('cont1')
         const contTwo = document.getElementById('cont2')
         const contThree = document.getElementById('cont3')
-        // fossilImg.src = selectFossil['image_uri']
-        // fossilImg.alt = selectFossil.name['name-USen']
-        //if else statements for container
-        console.log(fossilImg)
-        // Hi Sara, tried both of these if else statements and both had some functionality going back and forth from contOne & contTwo
-        // if (contOne.innerHTML === ''){
-        //     contOne.append(fossilImg)
-        // } else if (contOne.innerHTML.includes('fossil')){
-        //     contTwo.append(fossilImg)
-        // } else if (contTwo.innerHTML.includes('fossil')){
-        //     contThree.append(fossilImg)
-        // }
         if (contOne.innerHTML === ''){
             fossilImg.classList.remove('fossilImg')
             contOne.append(fossilImg)
+            speechBubble.innerHTML = 'HOO! This will make an excellent addition for the museum!'
         } else if (contTwo.innerHTML === ''){
             fossilImg.classList.remove('fossilImg')
             contTwo.append(fossilImg)
+            speechBubble.innerHTML = 'Another generous donation, Thank Hoo!'
         } else if (contThree.innerHTML === ''){
             fossilImg.classList.remove('fossilImg')
             contThree.append(fossilImg)
-        } else fullMuseum()
-        // switch(contOne.innerHTML) {
-        //     case '':
-        //         contOne.append(fossilImg)
-        //         break
-        //     case '':
-        //         contTwo.append(fossilImg)
-        //         speechBubble.innerHTML = 'Another donation! Thank you!'
-        //         break
-        //     case '':
-        //         contThree.append(fossilImg)
-        //         speechBubble.innerHTML = 'HOO! Another amazing piece to add to the museum. Thank hoo!'
-        //         break
-        //         default:
-        //         fullMuseum()
-        // }
-        // debugger
-        speechBubble.innerHTML = 'HOO! This will make an excellent addition for the museum!'
+            speechBubble.innerHTML = 'You\'re kindness amazing! my museum is now full!'
+        } 
     } else if (speechBubble.innerHTML.includes('bugs')) {
         speechBubble.innerHTML = 'Hooooo..... WHO!? Get it away! Fossils only'
     } else speechBubble.innerHTML = 'Zzzz...Zzzz..Zzzz...'
@@ -111,10 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function searchError() {
         alert('Hoo! Sorry, Couldn\'t find it.')
         speechBubble.innerHTML = 'Hoo! I hate bugs! Try another search.'
-    }
-    
-    function fullMuseum() {
-        speechBubble.innerText = 'The museum is full!'
     }
 
     dig.addEventListener('click', (e) => {
