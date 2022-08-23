@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src = selectFossil['image_uri']
         img.alt = selectFossil.name['name-USen']
         speechBubble.append(h2, img, p)
-}
+        }
     
     donate.addEventListener('click', () => {
     // debugger
@@ -41,21 +41,24 @@ document.addEventListener('DOMContentLoaded', () => {
         //     contThree.append(fossilImg)
         // }
         if (contOne.innerHTML === ''){
+            fossilImg.classList.remove('fossilImg')
             contOne.append(fossilImg)
         } else if (contTwo.innerHTML === ''){
+            fossilImg.classList.remove('fossilImg')
             contTwo.append(fossilImg)
         } else if (contThree.innerHTML === ''){
+            fossilImg.classList.remove('fossilImg')
             contThree.append(fossilImg)
-        }
-        // switch('') {
-        //     case contOne.innerHTML:
+        } else fullMuseum()
+        // switch(contOne.innerHTML) {
+        //     case '':
         //         contOne.append(fossilImg)
         //         break
-        //     case contTwo.innerHTML:
+        //     case '':
         //         contTwo.append(fossilImg)
         //         speechBubble.innerHTML = 'Another donation! Thank you!'
         //         break
-        //     case contThree.innerHTML:
+        //     case '':
         //         contThree.append(fossilImg)
         //         speechBubble.innerHTML = 'HOO! Another amazing piece to add to the museum. Thank hoo!'
         //         break
@@ -155,26 +158,26 @@ document.addEventListener('DOMContentLoaded', () => {
 // if (speechBubble.innerHTML.includes('fossils'))
 
 // function donateFossil(fossils) {
-//     if (speechBubble.innerHTML.includes('fossils')) {
-//     let fossilImg = document.querySelector('.fossilImg')
-//     const contOne = document.getElementById('cont1')
-//     const contTwo = document.getElementById('cont2')
-//     const contThree = document.getElementById('cont3')
-//     switch('') {
-//         case contOne.innerHTML:
-//             contOne.append(fossilImg)
-//             break
-//         case contTwo.innerHTML:
-//             contTwo.append(fossilImg)
-//             break
-//         case contThree.innerHTML:
-//             contThree.append(fossilImg)
-//             break
-//             default:
-//                 fullMuseum()
-//             }
-//             speechBubble.innerHTML = 'HOO! This will make an excellent addition for the museum!'
-//         } else if (speechBubble.innerHTML.includes('bugs')) {
-//             speechBubble.innerHTML = 'Hooooo..... WHO!? Get it away! Fossils only'
-//         } else speechBubble.innerHTML = 'Zzzz...Zzzz..Zzzz...'
-//     }
+    // if (speechBubble.innerHTML.includes('fossils')) {
+    // let fossilImg = document.querySelector('.fossilImg')
+    // const contOne = document.getElementById('cont1')
+    // const contTwo = document.getElementById('cont2')
+    // const contThree = document.getElementById('cont3')
+    // switch('') {
+    //     case contOne.innerHTML:
+    //         contOne.append(fossilImg)
+    //         break
+    //     case contTwo.innerHTML:
+    //         contTwo.append(fossilImg)
+    //         break
+    //     case contThree.innerHTML:
+    //         contThree.append(fossilImg)
+    //         break
+    //         default:
+    //             fullMuseum()
+    //         }
+    //         speechBubble.innerHTML = 'HOO! This will make an excellent addition for the museum!'
+    //     } else if (speechBubble.innerHTML.includes('bugs')) {
+    //         speechBubble.innerHTML = 'Hooooo..... WHO!? Get it away! Fossils only'
+    //     } else speechBubble.innerHTML = 'Zzzz...Zzzz..Zzzz...'
+    // }
