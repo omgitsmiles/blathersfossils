@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else speechBubble.innerHTML = 'Zzzz...Zzzz..Zzzz...'
     })
 
-//disabled button after donation hit limit
     function renderBugs(bugs, string){
         speechBubble.innerHTML = ''
         const search = string => {
