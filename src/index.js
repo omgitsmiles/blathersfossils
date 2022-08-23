@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     donate.addEventListener('click', () => {
     if (speechBubble.innerHTML.includes('fossils')) {
         let fossilImg = document.querySelector('.fossilImg')
+        //DRY static array for conts apply iterators
         const contOne = document.getElementById('cont1')
         const contTwo = document.getElementById('cont2')
         const contThree = document.getElementById('cont3')
@@ -38,13 +39,15 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (contThree.innerHTML === ''){
             fossilImg.classList.remove('fossilImg')
             contThree.append(fossilImg)
-            speechBubble.innerHTML = 'You\'re kindness amazing! my museum is now full!'
+            speechBubble.innerHTML = 'You\'re kindness is amazing! my museum is now full!'
+            donate.disabled = true
         } 
     } else if (speechBubble.innerHTML.includes('bugs')) {
         speechBubble.innerHTML = 'Hooooo..... WHO!? Get it away! Fossils only'
     } else speechBubble.innerHTML = 'Zzzz...Zzzz..Zzzz...'
     })
 
+//disabled button after donation hit limit
     function renderBugs(bugs, string){
         speechBubble.innerHTML = ''
         const search = string => {
@@ -101,52 +104,3 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
 })
-
-
-
-
-// let str = bugs.name['name-USen']
-// if (str.toLowerCase().includes(bugs))
-
-// fossils.amber.name['name-USen']
-// ${e.target.search.value.toLowerCase()}
-
-// turn into the array, define in global scope to the math function can bring a random num
-// getMakeup()
-// .then(res => {
-//     allProducts.push(...res)
-//     // document.getElementById("products").addEventListener('change', displayProducts)
-// })
-
-  //if i declare the search event listner will it be able to pass select fossil here?
-            //pass global variable assign it to selected fossil
-            //take the renderfossil that was appended to speechbubble
-            //append image below blathers and donation button
-            //write a quick thank you from blathers
-
-// if (speechBubble.innerHTML.includes('fossils'))
-
-// function donateFossil(fossils) {
-    // if (speechBubble.innerHTML.includes('fossils')) {
-    // let fossilImg = document.querySelector('.fossilImg')
-    // const contOne = document.getElementById('cont1')
-    // const contTwo = document.getElementById('cont2')
-    // const contThree = document.getElementById('cont3')
-    // switch('') {
-    //     case contOne.innerHTML:
-    //         contOne.append(fossilImg)
-    //         break
-    //     case contTwo.innerHTML:
-    //         contTwo.append(fossilImg)
-    //         break
-    //     case contThree.innerHTML:
-    //         contThree.append(fossilImg)
-    //         break
-    //         default:
-    //             fullMuseum()
-    //         }
-    //         speechBubble.innerHTML = 'HOO! This will make an excellent addition for the museum!'
-    //     } else if (speechBubble.innerHTML.includes('bugs')) {
-    //         speechBubble.innerHTML = 'Hooooo..... WHO!? Get it away! Fossils only'
-    //     } else speechBubble.innerHTML = 'Zzzz...Zzzz..Zzzz...'
-    // }
