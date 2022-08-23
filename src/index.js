@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     donate.addEventListener('click', () => {
     if (speechBubble.innerHTML.includes('fossils')) {
         let fossilImg = document.querySelector('.fossilImg')
-        //DRY static array for conts apply iterators
         const contOne = document.getElementById('cont1')
         const contTwo = document.getElementById('cont2')
         const contThree = document.getElementById('cont3')
@@ -40,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fossilImg.classList.remove('fossilImg')
             contThree.append(fossilImg)
             speechBubble.innerHTML = 'You\'re kindness is amazing! my museum is now full!'
-            donate.disabled = true
+            donate.innerHTML = ''
         } 
     } else if (speechBubble.innerHTML.includes('bugs')) {
         speechBubble.innerHTML = 'Hooooo..... WHO!? Get it away! Fossils only'
