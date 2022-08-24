@@ -22,3 +22,11 @@ With a simple search query, you can have access to the bugs and a brief descript
 In the game, Blathers upkeeps a museum of the villagers findings that are taken to him. So it wouldn't a full Blathers experience without the ability to donate to his museum! functionality is done after you fetch a fossil. After he identifies, the user has the ability to donate his finding to Blathers. The image of the fossil should render right below Blathers. 
 
 ![Donate](https://github.com/omgitsmiles/blathersfossils/blob/68fb563d9e47100f63b148c58e4c35c13a96dbf4/donate.gif)
+
+### Misc
+
+[API](https://acnhapi.com/v1/bugs) put together by Alexis(Alexis#8717) 
+Blathers logo made through [Fontmeme](https://fontmeme.com)
+Villager Sprite provided through Wix Media Pltatform
+Blathers Sprite provided by [Gamerslance](https://gamerslance.com)
+
