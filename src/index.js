@@ -28,16 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const contTwo = document.getElementById('cont2')
         const contThree = document.getElementById('cont3')
         if (contOne.innerHTML === ''){
-            fossilImg.classList.remove('fossilImg')
             contOne.append(fossilImg)
+            fossilImg.classList.remove('fossilImg')
             speechBubble.innerHTML = 'HOO! This will make an excellent addition for the museum!'
         } else if (contTwo.innerHTML === ''){
-            fossilImg.classList.remove('fossilImg')
             contTwo.append(fossilImg)
+            fossilImg.classList.remove('fossilImg')
             speechBubble.innerHTML = 'Another generous donation, Thank Hoo!'
         } else if (contThree.innerHTML === ''){
-            fossilImg.classList.remove('fossilImg')
             contThree.append(fossilImg)
+            fossilImg.classList.remove('fossilImg')
             speechBubble.innerHTML = 'Your kindness is a HOOT! my museum is now full!'
             donate.innerHTML = ''
         } 
@@ -100,5 +100,4 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(bugs => renderBugs(bugs, e.target.search.value.toLowerCase()))
         .catch(() => searchError())
     })
-
 })
