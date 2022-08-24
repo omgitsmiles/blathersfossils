@@ -98,6 +98,5 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(baseURL + '/bugs')
         .then(res => res.json())
         .then(bugs => renderBugs(bugs, e.target.search.value.toLowerCase()))
-        .catch(() => searchError())
     })
 })
