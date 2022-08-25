@@ -64,8 +64,12 @@ document.addEventListener('DOMContentLoaded', () => {
             results.forEach(item => {
             const selectBugs = bugs[item]
             const div = document.createElement('div')
+            div.className = 'bugDiv'
             div.innerText = selectBugs.name['name-USen']
             speechBubble.append(div)
+            div.addEventListener('mouseover', () => {
+                div.element.style.cursor = pointerstyle
+            })
             div.addEventListener('click', () => {
                 speechBubble.innerHTML = ''
                 h2.innerText = selectBugs.name['name-USen']
@@ -90,7 +94,9 @@ document.addEventListener('DOMContentLoaded', () => {
     dig.addEventListener('click', (e) => {
        fetch(baseURL + '/fossils')
        .then(res => res.json())
-       .then(fossils => renderFossil(fossils))
+       .then(fossils => {
+        renderFossil(fossils)
+    })
     })
 
     search.addEventListener('submit', (e) => {
@@ -100,3 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(bugs => renderBugs(bugs, e.target.search.value.toLowerCase()))
     })
 })
+
+//work on array iterators, callback functions, and know what the fetch request does returns a promise
+

@@ -26,7 +26,10 @@ In the game, Blathers upkeeps a museum of the villagers findings that are taken 
 ### Misc
 
 [API](https://acnhapi.com/v1/bugs) put together by Alexis(Alexis#8717) 
+
 Blathers logo made through [Fontmeme](https://fontmeme.com)
+
 Villager Sprite provided through Wix Media Pltatform
+
 Blathers Sprite provided by [Gamerslance](https://gamerslance.com)
 
