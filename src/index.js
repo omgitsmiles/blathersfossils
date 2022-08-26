@@ -67,9 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
             div.className = 'bugDiv'
             div.innerText = selectBugs.name['name-USen']
             speechBubble.append(div)
-            div.addEventListener('mouseover', () => {
-                div.element.style.cursor = pointerstyle
-            })
+            // div.addEventListener('mouseover', () => {
+            //     div.element.style.cursor = pointerstyle
+            // })
             div.addEventListener('click', () => {
                 speechBubble.innerHTML = ''
                 h2.innerText = selectBugs.name['name-USen']
@@ -109,3 +109,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //work on array iterators, callback functions, and know what the fetch request does returns a promise
 
+// make the guitar header a clickable button using event listner
+// upon click use the function giving in the ex renderAllGuitars to render to container 
+// const renderAllGuitars = [{ array }] => {
+// if guitars are define in global scope use the const name and iterate to append on card with map or forEach
+//      guitars.map(guitar => {
+//      const div = document.createElement('div')
+//      div.innerText = guitar.name
+//      guitarsContainer.append(div)
+//})
+//}
+// declare a variable called budgetGuitars. Using the filter function, filter the guitars by price less than 500
+// once you filter, grab the discount button, create event listener, use the variable as the cb function to append guitars to DOM
+// const budgetGuitars = (array) => {
+//       guitarsContainer.innerHTML = ''
+//       const filterGuitars = array.filter(guitar => guitar.price < 500)
+//       const div = document.createElement('div')
+//       div.innerText = filterGuitars
+//       budgetGuitarsContainer.append(div)
+// }
+// allGuitarButton.addEventListener('click', renderAllGuitars)
+// budgetGuitarsButton.addEventlistener('click', budgetGuitars(guitars))
+//
+// using the search button event listener, console log to find the target value of search so we can grab that input
+// with that input create a function that takes the input from search and pushes the input value into appropiate keys
+//
