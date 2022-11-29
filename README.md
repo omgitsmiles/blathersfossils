@@ -4,7 +4,7 @@ The following project dives into the world of animal crossing and gives the user
    - Fossils
    - Bugs
 
-Using the [Animal Crossing New Horizon API](https://acnhapi.com/v1/), I have created a single page application with three unique features.
+Using the [Animal Crossing New Horizon API](https://acnhapi.com), I have created a single page application with three unique features.
 
 ### Dig
 In spirit of the game, the villager sprite in the right takes their shovel and digs around the island for a fossil. 
